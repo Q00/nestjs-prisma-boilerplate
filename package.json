@@ -38,7 +38,11 @@
     "postinstall": "npx prisma generate",
     "prepare": "npm run compile",
     "pretest": "npm run compile",
-    "posttest": "npm run check"
+    "posttest": "npm run check",
+    "db:save:dev": "dotenv -e prisma/.dev.env -- npx prisma migrate save --experimental",
+    "db:migration:dev": "dotenv -e prisma/.dev.env -- npx prisma migrate up --experimental",
+    "db:save:prod": "dotenv -e prisma/.production.env -- npx prisma migrate save --experimental",
+    "db:migration:prod": "dotenv -e prisma/.production.env -- npx prisma migrate up --experimental"
   },
   "dependencies": {
     "@nestjs/testing": "^7.3.2",
