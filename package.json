@@ -35,7 +35,6 @@
     "start": "NODE_ENV=production node dist/main.js",
     "start:dev": "NODE_ENV=dev node dist/main.js",
     "build": "tsc -p tsconfig.build.json",
-    "postinstall": "npx prisma generate",
     "prepare": "npm run compile",
     "pretest": "npm run compile",
     "posttest": "npm run check",
@@ -45,14 +44,28 @@
     "db:migration:prod": "dotenv -e prisma/.production.env -- npx prisma migrate up --experimental"
   },
   "dependencies": {
+    "@nestjs/common": "^7.3.2",
+    "@nestjs/config": "^0.5.0",
+    "@nestjs/core": "^7.3.2",
+    "@nestjs/jwt": "^7.1.0",
+    "@nestjs/passport": "^7.1.0",
+    "@nestjs/platform-express": "^7.3.2",
     "@nestjs/testing": "^7.3.2",
     "@prisma/cli": "^2.2.2",
+    "@prisma/client": "^2.2.2",
+    "@prisma/engine-core": "^2.2.2",
+    "@prisma/generator-helper": "^2.2.2",
     "@types/passport": "^1.0.4",
     "@types/passport-jwt": "^3.0.3",
+    "axios": "^0.19.2",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "nodemon": "^2.0.4",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^6.6.0",
     "ts-node": "^8.6.2"
   }
 }
