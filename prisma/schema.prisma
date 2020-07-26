@@ -11,6 +11,28 @@ generator client {
   binaryTargets = ["native"]
 }
 
+enum Authentication {
+  GITHUB
+  GOOGLE
+}
+
 model User {
-  id Int @id
+  id            Int          @default(autoincrement()) @id
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+  deletedAt     DateTime?
+  userAccount   UserAccount? @relation(fields: [userAccountId], references: [id])
+  userAccountId Int?         @unique
+}
+
+model UserAccount {
+  id             Int            @default(autoincrement()) @id
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+  deletedAt      DateTime?
+  authentication Authentication
+  accountId      String
+  user           User?
+
+  @@unique([authentication, accountId], name: "UserAccount_authentication_accountId_unique_constraint")
 }
