@@ -36,6 +36,7 @@
     "start": "NODE_ENV=production node dist/main.js",
     "start:dev": "NODE_ENV=dev node dist/main.js",
     "build": "tsc -p tsconfig.build.json",
+    "postinstall": "npx prisma generate",
     "prepare": "npm run compile",
     "pretest": "npm run compile",
     "posttest": "npm run check",
