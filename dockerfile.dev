@@ -1,4 +1,4 @@
-FROM node:12.16.2
+FROM node:14.15.2
 ENV TZ=Asia/Seoul
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 

@@ -6,10 +6,10 @@ import * as express from 'express';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { HttpExceptionFilter } from './shared/filter/http-exception.filter';
 
-config({ path: resolve(__dirname, `../.${process.env.NODE_ENV}.env`) });
+config({ path: resolve(__dirname, `../.env.${process.env.NODE_ENV}`) });
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, { cors: true });
 
   const swaggerOptions = new DocumentBuilder()
     .setTitle('API Swagger')
